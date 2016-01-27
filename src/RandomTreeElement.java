@@ -1,5 +1,8 @@
 import java.util.Random;
 
+
+//Print a random element from the tree
+//In O(log(n)) time
 public class RandomTreeElement {
 
 	public static void main(String args[]) {
@@ -13,17 +16,17 @@ public class RandomTreeElement {
 			num = r.nextInt(4);
 
 		System.out.println(num);
-		iterate(n, 3);
+		printRandom(n, 3);
 	}
 
-	public static void iterate(TreeNode n, int num) {
+	public static void printRandom(TreeNode n, int randomNum) {
 		int leftSize = n.left == null ? 0 : n.left.size;
-		if (num == leftSize + 1)
+		if (randomNum == leftSize + 1)
 			System.out.println(n.data);
-		else if (num > leftSize + 1)
-			iterate(n.right, num - (leftSize + 1));
+		else if (randomNum > leftSize + 1)
+			printRandom(n.right, randomNum - (leftSize + 1));
 		else
-			iterate(n.left, num);
+			printRandom(n.left, randomNum);
 	}
 }
 
